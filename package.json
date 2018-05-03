@@ -1,0 +1,18 @@
+{
+  "name": "govuk-registers",
+  "version": "1.0.0",
+  "description": "library to use GOV.UK registers",
+  "main": "register.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "The GOV.UK Registers team at GDS",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
+  }
+}
