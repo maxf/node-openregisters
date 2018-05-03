@@ -42,7 +42,7 @@ class Register {
   get2(path, options, functionName, callback) {
     this.get(path, options, (error, response, data) => {
       if (error || response.statusCode !== 200) {
-        throw `${functionName} failed on ${this.baseUrl}`;
+        throw `${functionName} failed on ${this.baseUrl}${path}`;
       } else {
         callback(data);
       }
@@ -59,10 +59,16 @@ class Register {
   }
 
   getRecordEntries(callback, fieldVal) {
-    this.get2(`/records/${fieldVal}/entries`, {}, 'getRecordEntries', callback);
+    let apiPath = `/records/${encodeURIComponent(fieldVal)}/entries`;
+    this.get2(apiPath, {}, 'getRecordEntries', callback);
   }
 
-
+  getRecordsByValue(callback, fieldName, fieldVal) {
+    let apiPath =
+        `/records/${encodeURIComponent(fieldName)}/`
+        + `${encodeURIComponent(fieldVal)}`;
+    this.get2(apiPath, {}, 'getRecordsByValue', callback);
+  }
 
 }
 

@@ -80,4 +80,16 @@ describe('Register', () => {
     countryRegister.getRecordEntries(callback, 'GB')
   });
 
+  it('getRecordsByValue should return entries', done => {
+    const callback = entries => {
+      expect(entries.GB).to.be.an('object');
+      done();
+    }
+    countryRegister.getRecordsByValue(
+      callback,
+      'citizen-names',
+      'Briton;British citizen'
+    );
+  });
+
 });
