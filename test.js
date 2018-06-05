@@ -9,7 +9,7 @@ describe('Register', () => {
   let countryRegister;
 
   before(() => {
-      countryRegister = new Register({
+    countryRegister = new Register({
       baseUrl: 'https://country.register.gov.uk',
       apiKey: 'my API key'
     });
@@ -47,7 +47,6 @@ describe('Register', () => {
     });
   });
 
-
   it('getInfo should return information about the register', done => {
     countryRegister.getInfo(registerInfo => {
       expect(registerInfo.domain).to.equal('register.gov.uk');
@@ -68,7 +67,7 @@ describe('Register', () => {
       expect(Object.keys(records).length).to.equal(20);
       done();
     };
-    countryRegister.getRecords(callback, 1, 20)
+    countryRegister.getRecords(callback, 1, 20);
   });
 
   it('getRecordEntries should return entries', done => {
@@ -77,14 +76,14 @@ describe('Register', () => {
       expect(entries[0].key).to.equal('GB');
       done();
     };
-    countryRegister.getRecordEntries(callback, 'GB')
+    countryRegister.getRecordEntries(callback, 'GB');
   });
 
   it('getRecordsByValue should return entries', done => {
     const callback = entries => {
       expect(entries.GB).to.be.an('object');
       done();
-    }
+    };
     countryRegister.getRecordsByValue(
       callback,
       'citizen-names',

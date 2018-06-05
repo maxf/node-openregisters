@@ -20,7 +20,7 @@ class Register {
         Authorization: this.apiKey,
         Accept: 'application/json'
       }
-    }
+    };
 
     let queryStringParams = {};
     Object.keys(options).forEach(key => {
